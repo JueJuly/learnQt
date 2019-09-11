@@ -6,6 +6,8 @@
 #include <QRadioButton>
 #include <QPlainTextEdit>
 #include <QPushButton>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 class Dialog : public QDialog
 {
@@ -24,7 +26,8 @@ private:
     QPushButton     *btnClose;      //关闭按钮
 
     void initUI();                  //初始化UI
-    void initSignalSlots();         //初始化信号槽
+    void freeUI();                  //释放UI资源
+    void initSignalSlots();         //初始化信号槽   
 
 private slots:
     void on_chkBoxUnder(bool checked);  //UnderLine的clicked(bool)信号的槽函数
