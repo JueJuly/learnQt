@@ -26,6 +26,12 @@ private:
     void initUI();                  //初始化UI
     void initSignalSlots();         //初始化信号槽
 
+private slots:
+    void on_chkBoxUnder(bool checked);  //UnderLine的clicked(bool)信号的槽函数
+    void on_chkBoxItalic(bool checked); //Ttalic的clicked(bool)信号的槽函数
+    void on_chkBoxBold(bool checked);   //Bold的clicked(bool)信号的槽函数
+    void setTextFontColor();            //设置字体颜色
+
 public:
     Dialog(QWidget *parent = 0);
     ~Dialog();
