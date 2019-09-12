@@ -8,22 +8,24 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QtGlobal>
+#include <QFloat16>
 
 class Dialog : public QDialog
 {
     Q_OBJECT
 private:
     //statement variables
-    QCheckBox       *chkBoxUnder;   //下划线
-    QCheckBox       *chkBoxBold;    //黑体
-    QCheckBox       *chkBoxItalic;  //斜体
-    QRadioButton    *rBtnBlack;     //黑色
-    QRadioButton    *rBtnRed;       //红色
-    QRadioButton    *rBtnBlue;      //蓝色
-    QPlainTextEdit  *textEdit;      //纯文本编辑框
-    QPushButton     *btnOk;         //ok按钮
-    QPushButton     *btnCancel;     //取消按钮
-    QPushButton     *btnClose;      //关闭按钮
+    QCheckBox       *m_chkBoxUnder;   //下划线
+    QCheckBox       *m_chkBoxBold;    //黑体
+    QCheckBox       *m_chkBoxItalic;  //斜体
+    QRadioButton    *m_rBtnBlack;     //黑色
+    QRadioButton    *m_rBtnRed;       //红色
+    QRadioButton    *m_rBtnBlue;      //蓝色
+    QPlainTextEdit  *m_textEdit;      //纯文本编辑框
+    QPushButton     *m_btnOk;         //ok按钮
+    QPushButton     *m_btnCancel;     //取消按钮
+    QPushButton     *m_btnClose;      //关闭按钮
 
     void initUI();                  //初始化UI
     void freeUI();                  //释放UI资源
