@@ -6,6 +6,11 @@
 #include <QLineEdit>
 #include <QGridLayout>
 #include <QFileDialog>
+#include <QColorDialog>
+#include <QFrame>
+#include <QPalette>
+
+#include "inputdlg.h"
 
 class Dialog : public QDialog
 {
@@ -21,8 +26,18 @@ private:
     QLineEdit *fileLineEdit;
     QGridLayout *mainLayout;
 
+    //颜色对话框
+    QPushButton *colorBtn;
+    QFrame *colorFrame;
+
+    //输入对话框
+    QPushButton *inputBtn;
+    InputDlg *inputDlg;
+
 private slots:
     void showFile();
+    void showColor();
+    void showInputDlg();
 
 };
 

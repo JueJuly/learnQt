@@ -11,12 +11,37 @@ Dialog::Dialog(QWidget *parent)
     fileBtn->setText(tr("文件标准对话框"));
     fileLineEdit = new QLineEdit; //显示所选文件名
 
+    //布局文件对话框
     mainLayout = new QGridLayout(this);
     mainLayout->addWidget(fileBtn,0,0);
     mainLayout->addWidget(fileLineEdit,0,1);
 
-    connect(fileBtn,SIGNAL(clicked()),this,SLOT(showFile()));
+    //初始化颜色对话框
+    colorBtn = new QPushButton(this);
+    colorBtn->setText(tr("颜色标准对话框"));
+    colorFrame = new QFrame(this);
+    colorFrame->setFrameShape(QFrame::Box);
+    colorFrame->setAutoFillBackground(true);
 
+    //颜色对话框布局管理
+    mainLayout->addWidget(colorBtn,1,0);
+    mainLayout->addWidget(colorFrame,1,1);
+
+    inputBtn = new QPushButton(this);
+    inputBtn->setText(tr("标准输入对话框"));
+
+    mainLayout->addWidget(inputBtn,2,0);
+
+
+    connect(fileBtn,SIGNAL(clicked()),this,SLOT(showFile()));
+    connect(colorBtn,SIGNAL(clicked()),this,SLOT(showColor()));
+    connect(inputBtn,SIGNAL(clicked()),this,SLOT(showInputDlg()));
+
+
+}
+
+Dialog::~Dialog()
+{
 
 }
 
@@ -35,7 +60,17 @@ void Dialog::showFile()
     fileLineEdit->setText(str);
 }
 
-Dialog::~Dialog()
+void Dialog::showColor()
 {
+    QColor clr = QColorDialog::getColor(Qt::blue);
+    if(clr.isValid())
+    {
+        colorFrame->setPalette(QPalette(clr));
+    }
+}
 
+void Dialog::showInputDlg()
+{
+    inputDlg = new InputDlg(this);
+    inputDlg->show();
 }
