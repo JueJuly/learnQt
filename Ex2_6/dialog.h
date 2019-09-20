@@ -11,6 +11,7 @@
 #include <QPalette>
 
 #include "inputdlg.h"
+#include "msgboxdlg.h"
 
 class Dialog : public QDialog
 {
@@ -34,10 +35,15 @@ private:
     QPushButton *inputBtn;
     InputDlg *inputDlg;
 
+    //消息对话框
+    QPushButton *msgBtn;
+    MsgBoxDlg *msgDlg;
+
 private slots:
     void showFile();
     void showColor();
     void showInputDlg();
+    void showMsgDlg();
 
 };
 

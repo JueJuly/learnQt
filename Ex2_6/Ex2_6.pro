@@ -26,8 +26,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         dialog.cpp \
-    inputdlg.cpp
+    inputdlg.cpp \
+    msgboxdlg.cpp
 
 HEADERS += \
         dialog.h \
-    inputdlg.h
+    inputdlg.h \
+    msgboxdlg.h

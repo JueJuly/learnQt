@@ -32,10 +32,16 @@ Dialog::Dialog(QWidget *parent)
 
     mainLayout->addWidget(inputBtn,2,0);
 
+    msgBtn = new QPushButton(this);
+    msgBtn->setText(tr("标准消息对话框"));
+
+    mainLayout->addWidget(msgBtn,3,0);
+
 
     connect(fileBtn,SIGNAL(clicked()),this,SLOT(showFile()));
     connect(colorBtn,SIGNAL(clicked()),this,SLOT(showColor()));
     connect(inputBtn,SIGNAL(clicked()),this,SLOT(showInputDlg()));
+    connect(msgBtn,SIGNAL(clicked()),this,SLOT(showMsgDlg()));
 
 
 }
@@ -73,4 +79,10 @@ void Dialog::showInputDlg()
 {
     inputDlg = new InputDlg(this);
     inputDlg->show();
+}
+
+void Dialog::showMsgDlg()
+{
+    msgDlg = new MsgBoxDlg(this);
+    msgDlg->show();
 }
