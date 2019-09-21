@@ -1,4 +1,5 @@
 #include "msgboxdlg.h"
+#include <QMessageBox>
 
 MsgBoxDlg::MsgBoxDlg(QWidget *parent)
     :QDialog(parent)
@@ -52,12 +53,32 @@ MsgBoxDlg::MsgBoxDlg(QWidget *parent)
 
 void MsgBoxDlg::showQuestionMsg()
 {
-
+    label->setText(tr("Question Message Box"));
+    QMessageBox::StandardButton stdBtn = QMessageBox::question(this,
+                                                               tr("Question 消息框"),
+                                                               tr("修改完成，是否结束程序"),
+                                                               QMessageBox::Ok|QMessageBox::Cancel,
+                                                               QMessageBox::Ok);
+    switch (stdBtn) {
+    case QMessageBox::Ok:
+        label->setText(tr("Question Button/Ok"));
+        break;
+    case QMessageBox::Cancel:
+        label->setText(tr("Question Button/Cannel"));
+        break;
+    default:
+        break;
+    }
+    return;
 }
 
 void MsgBoxDlg::showInfomationMsg()
 {
-
+    label->setText(tr("Information Message Box"));
+    QMessageBox::information(this,
+                             tr("Information消息框"),
+                             tr("这是Information消息框！"));
+    return;
 }
 
 void MsgBoxDlg::showWarningMsg()
